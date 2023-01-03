@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Incidencias</title>
 
+    @vite(['resources/js/app.js','resources/sass/app.scss'])
     @livewireStyles
 </head>
 <body>

@@ -1,3 +1,3 @@
 <div>
-    <button wire:click='test'>Hola</button>
+    <button class="btn btn-primary" wire:click='test'>Hola</button>
 </div>
