@@ -7,9 +7,9 @@
             <div class="card" style="width: 18rem;">
                 <img src="{{ asset('images/incidencias.svg')}}" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Título de la tarjeta</h5>
+                  <h5 class="card-title">Incidencias</h5>
                   <p class="card-text">Un texto de ejemplo rápido para colocal cerca del título de la tarjeta y componer la mayor parte del contenido de la tarjeta.</p>
-                  <a href="#" class="btn btn-primary">Ir a algún lugar</a>
+                  <a href="#" class="btn btn-primary">Ir a incidencias</a>
                 </div>
             </div>
         </div>
@@ -17,9 +17,9 @@
             <div class="card" style="width: 18rem;">
                 <img src="{{ asset('images/recordatorios.svg')}}" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Título de la tarjeta</h5>
+                  <h5 class="card-title">Recordatorios</h5>
                   <p class="card-text">Un texto de ejemplo rápido para colocal cerca del título de la tarjeta y componer la mayor parte del contenido de la tarjeta.</p>
-                  <a href="#" class="btn btn-primary">Ir a algún lugar</a>
+                  <a href="#" class="btn btn-primary">Ir a recordatorios</a>
                 </div>
             </div>
         </div>
