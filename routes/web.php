@@ -19,3 +19,6 @@ Route::get('/', function () {
 Route::get('/reminder', function () {
     return view('content.reminder');
 });
+Route::get('/company', function () {
+    return view('content.company');
+});
