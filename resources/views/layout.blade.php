@@ -10,6 +10,7 @@
     @livewireStyles
 </head>
 <body>
+    @livewire('alert')
 
     @yield('content')
 
