@@ -8,6 +8,7 @@ class Alert extends Component
 {
     public $show = false, $msg;
 
+    #escuchador
     protected $listeners = ['showAlert'];
 
     public function showAlert($msg){
@@ -21,7 +22,6 @@ class Alert extends Component
         $this->msg = null;
 
     }
-
 
     public function render()
     {

@@ -6,7 +6,7 @@
                 <span class="invalid-feedback" role="alert"><strong>{{$message}}</strong></span>
             @enderror
         </label>
-        <button class="btn btn-primary" wire:click='saveCompany' id="liveToastBtn">Guardar</button>
+        <button class="btn btn-primary" wire:click='saveCompany'>Guardar</button>
     </div>
     <div>
         <label class="form-label"> Ramas:
@@ -15,15 +15,23 @@
                 <span class="invalid-feedback" role="alert"><strong>{{$message}}</strong></span>
             @enderror
         </label>
-        <button class="btn btn-primary" wire:click='saveBranch' id="liveToastBtn">Guardar</button>
+        <button class="btn btn-primary" wire:click='saveBranch'>Guardar</button>
     </div>
     <div>
         <label class="form-label"> Ambiente:
-            <input type="text" class="form-control @error('environment') is-invalid @enderror" wire:model='environment'>
-            @error('environment')
+            <input type="text" class="form-control @error('environment.name') is-invalid @enderror" wire:model='environment.name'>
+            @error('environment.name')
                 <span class="invalid-feedback" role="alert"><strong>{{$message}}</strong></span>
             @enderror
         </label>
-        <button class="btn btn-primary" wire:click='saveEnvironment' id="liveToastBtn">Guardar</button>
+        <label class="form-label"> Empresas:
+            <select wire:model="environment.company_id">
+                <option value=" ">Selecciona una empresa</option>
+                @foreach ($companies as $key => $company)
+                    <option value="{{$key}}">{{$company}}</option>
+                @endforeach
+            </select>
+        </label>
+        <button class="btn btn-primary" wire:click='saveEnvironment'>Guardar</button>
     </div>
 </div>
