@@ -63,10 +63,11 @@ class Company extends Component
         ]);
 
         try{
-            $environment = new Environment();
-            $environment->name = $this->environment['name'];
-            $environment->company_id = $this->environment['company_id'];
-            $environment->save();
+            // $environment = new Environment();
+            // $environment->name = $this->environment['name'];
+            // $environment->company_id = $this->environment['company_id'];
+            // $environment->save();
+            $environment = Environment::create($this->environment);
             $this->environment = [];
             $this->emit('showAlert', "Guardado");
         }catch(\Exception $e){

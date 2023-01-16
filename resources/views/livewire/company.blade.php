@@ -25,7 +25,7 @@
             @enderror
         </label>
         <label class="form-label"> Empresas:
-            <select wire:model="environment.company_id">
+            <select wire:model="environment.company_id" class="form-select">
                 <option value=" ">Selecciona una empresa</option>
                 @foreach ($companies as $key => $company)
                     <option value="{{$key}}">{{$company}}</option>

@@ -11,5 +11,8 @@ class Environment extends Model
 
     public $timestamps = false;
 
-    protected $fillable =['company_id'];
+    protected $fillable =[
+        'company_id',
+        'name'
+    ];
 }
