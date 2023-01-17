@@ -5,11 +5,14 @@ namespace App\Http\Livewire;
 use App\Models\Branch;
 use App\Models\Company as ModelsCompany;
 use App\Models\Environment;
+use App\Traits\selectsTrait;
 use Livewire\Component;
 
 class Company extends Component
 {
-    public $company, $branch, $companies;
+    use selectsTrait;
+
+    public $company, $branch;
 
     public $environment = [
         'name'=> null,
@@ -19,11 +22,6 @@ class Company extends Component
     public function mount()
     {
         $this->loadCompanies();
-    }
-
-    public function loadCompanies()
-    {
-        $this->companies = ModelsCompany::pluck('name', 'id');
     }
 
     public function saveCompany()
