@@ -11,12 +11,8 @@ class Reminder extends Component
     use selectsTrait;
 
     public $reminder = [
-        'title'              => null,
-        'description'        => null,
         'reminder_status_id' => 1,
-        'company_id'         => null,
-        'date'               => null
-    ];
+    ], $modal = [];
 
     public function mount()
     {
@@ -34,6 +30,20 @@ class Reminder extends Component
         }catch(\Exception $e){
             $this->emit('showAlert', "Error");
         }
+    }
+
+    public function delete($id)
+    {
+        $this->modal[$id] = true;
+        // $reminder = ModelsReminder::find($id);
+        // $reminder->delete();
+        // $this->loadReminders();
+    }
+
+    public function modalClose()
+    {
+        $this->modal = [];
+
     }
 
     public function render()
