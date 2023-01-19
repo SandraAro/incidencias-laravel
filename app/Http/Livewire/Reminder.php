@@ -12,13 +12,18 @@ class Reminder extends Component
 
     public $reminder = [
         'reminder_status_id' => 1,
-    ], $modal = [];
+    ], $modal = [], $changeStatus = [];
 
     public function mount()
     {
         $this->loadCompanies();
         $this->loadReminderStatuses();
         $this->loadReminders();
+
+        foreach($this->reminders as $reminder)
+        {
+            $this->changeStatus[$reminder->id] = $reminder->status->id;
+        }
     }
 
     public function saveReminder()
@@ -32,18 +37,29 @@ class Reminder extends Component
         }
     }
 
-    public function delete($id)
+    public function delete($id,$confirm = false)
     {
         $this->modal[$id] = true;
-        // $reminder = ModelsReminder::find($id);
-        // $reminder->delete();
-        // $this->loadReminders();
+
+        if ($confirm) {
+            $reminder = ModelsReminder::find($id);
+            $reminder->delete();
+            $this->modal[$id] = false;
+            $this->loadReminders();
+        }
     }
 
     public function modalClose()
     {
         $this->modal = [];
 
+    }
+
+    public function changeStatus($id)
+    {
+       $reminder = ModelsReminder::find($id);
+       $reminder->update(['reminder_status_id' => $this->changeStatus[$id]]);
+       $this->loadReminders();
     }
 
     public function render()

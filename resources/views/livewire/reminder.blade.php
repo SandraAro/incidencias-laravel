@@ -30,7 +30,7 @@
                             <h4 class="fw-bold text-info">{{$reminder->title}}</h4>
                         </div>
                         <div class="col-4 d-flex justify-content-end p-0 align-items-start">
-                            <button wire:click="delete({{$reminder->id}})" class="btn btn-danger btn-sm">
+                            <button class="btn btn-danger btn-sm" wire:click="delete({{$reminder->id}})" >
                                 <i class="fa-solid fa-trash"></i>
                             </button>
                         </div>
@@ -39,7 +39,11 @@
                     <p>{{$reminder->description}}</p>
                     <span class="badge bg-primary">{{$reminder->date}}</span>
                     <span class="badge bg-success">{{$reminder->status->name}}</span>
-
+                    <select wire:model="changeStatus.{{$reminder->id}}" wire:change='changeStatus({{$reminder->id}})'>
+                        @foreach ($reminderStatuses as $key => $status)
+                            <option value="{{$key}}">{{$status}}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
         </div>
@@ -48,19 +52,19 @@
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title">Modal title</h5>
+                  <h5 class="modal-title">Recordatorios</h5>
                   <button type="button" class="btn-close" wire:click="modalClose"></button>
                 </div>
                 <div class="modal-body">
-                  <p>Modal body text goes here.</p>
+                  <p>¿Eliminar recordatorio?</p>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" wire:click="modalClose">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                  <button type="button" class="btn btn-secondary" wire:click="modalClose">No</button>
+                  <button type="button" class="btn btn-primary" wire:click="delete({{$reminder->id}},true)">Si</button>
                 </div>
               </div>
             </div>
-          </div>
+        </div>
         @endif
         @endforeach
     </div>
