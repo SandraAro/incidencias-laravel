@@ -30,6 +30,12 @@
                             <h4 class="fw-bold text-info">{{$reminder->title}}</h4>
                         </div>
                         <div class="col-4 d-flex justify-content-end p-0 align-items-start">
+                            <select class="form-select form-select-sm bg-success text-white mw-min d-inline-block" wire:model="changeStatus.{{$reminder->id}}" wire:change='changeStatus({{$reminder->id}})'>
+                                @foreach ($reminderStatuses as $key => $status)
+                                    <option value="{{$key}}">{{$status}}</option>
+                                @endforeach
+                            </select>
+
                             <button class="btn btn-danger btn-sm" wire:click="delete({{$reminder->id}})" >
                                 <i class="fa-solid fa-trash"></i>
                             </button>
@@ -38,12 +44,7 @@
 
                     <p>{{$reminder->description}}</p>
                     <span class="badge bg-primary">{{$reminder->date}}</span>
-                    <span class="badge bg-success">{{$reminder->status->name}}</span>
-                    <select wire:model="changeStatus.{{$reminder->id}}" wire:change='changeStatus({{$reminder->id}})'>
-                        @foreach ($reminderStatuses as $key => $status)
-                            <option value="{{$key}}">{{$status}}</option>
-                        @endforeach
-                    </select>
+                    
                 </div>
             </div>
         </div>
