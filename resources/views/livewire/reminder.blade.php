@@ -27,15 +27,13 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="fw-bold text-info">{{$reminder->title}}</h4>
+                        @if (@$isEdit[$reminder->id])
+                           <input autofocus type="text" wire:model="title" wire:keydown.enter="update('{{$reminder->id}}')"/> 
+                        @else
+                            <h4 class="fw-bold text-info" wire:click="editTitle('{{$reminder->id}}','{{$reminder->title}}')">{{$reminder->title}}</h4>
+                        @endif
                         </div>
                         <div class="col-4 d-flex justify-content-end p-0 align-items-start">
-                            <select class="form-select form-select-sm bg-success text-white mw-min d-inline-block" wire:model="changeStatus.{{$reminder->id}}" wire:change='changeStatus({{$reminder->id}})'>
-                                @foreach ($reminderStatuses as $key => $status)
-                                    <option value="{{$key}}">{{$status}}</option>
-                                @endforeach
-                            </select>
-
                             <button class="btn btn-danger btn-sm" wire:click="delete({{$reminder->id}})" >
                                 <i class="fa-solid fa-trash"></i>
                             </button>
@@ -44,6 +42,19 @@
 
                     <p>{{$reminder->description}}</p>
                     <span class="badge bg-primary">{{$reminder->date}}</span>
+
+                    <div class="row">
+                        <div class="col-8">
+                            
+                        </div>
+                        <div class="col-4 d-flex justify-content-end p-0 align-items-start">
+                            <select class="form-select form-select-sm {{$this->changeColor($reminder->status->id)}} text-white mw-min d-inline-block" wire:model="changeStatus.{{$reminder->id}}" wire:change='changeStatus({{$reminder->id}})'>
+                                @foreach ($reminderStatuses as $key => $status)
+                                    <option value="{{$key}}">{{$status}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
                     
                 </div>
             </div>

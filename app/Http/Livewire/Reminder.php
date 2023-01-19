@@ -12,7 +12,7 @@ class Reminder extends Component
 
     public $reminder = [
         'reminder_status_id' => 1,
-    ], $modal = [], $changeStatus = [];
+    ], $modal = [], $changeStatus = [], $title, $isEdit = [];
 
     public function mount()
     {
@@ -26,6 +26,43 @@ class Reminder extends Component
         }
     }
 
+    public function editTitle($id, $title)
+    {
+        $this->isEdit[$id] = true;
+        $this->title = $title;
+        
+    }
+    public function update($id)
+    {
+        $reminder = ModelsReminder::find($id);
+        $reminder->update(['title' => $this->title]);
+        $this->isEdit[$id] = false;
+        $this->title = null;
+        $this->loadReminders();
+    }
+
+    public function changeColor($status)
+    {
+        switch ($status) {
+            case '1':
+                return 'bg-warning';
+                break;
+            case '2':
+                return 'bg-info';
+                break;
+            case '3':
+                return 'bg-success';
+                break;
+            case '4':
+                return 'bg-danger';
+                break;
+            case '5':
+                return 'bg-secondary';
+                break;
+            
+        }
+        
+    }
     public function saveReminder()
     {
         try{
