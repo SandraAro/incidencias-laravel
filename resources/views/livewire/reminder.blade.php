@@ -28,7 +28,7 @@
                     <div class="row">
                         <div class="col-8">
                         @if (@$isEdit[$reminder->id])
-                           <input autofocus type="text" wire:model="title" wire:keydown.enter="update('{{$reminder->id}}')"/> 
+                           <input autofocus type="text" wire:model="title" wire:keydown.enter="update('{{$reminder->id}}')"/>
                         @else
                             <h4 class="fw-bold text-info" wire:click="editTitle('{{$reminder->id}}','{{$reminder->title}}')">{{$reminder->title}}</h4>
                         @endif
@@ -45,7 +45,7 @@
 
                     <div class="row">
                         <div class="col-8">
-                            
+                            {{-- <button class="b-btn-gradient" color="primary">Save</button> --}}
                         </div>
                         <div class="col-4 d-flex justify-content-end p-0 align-items-start">
                             <select class="form-select form-select-sm {{$this->changeColor($reminder->status->id)}} text-white mw-min d-inline-block" wire:model="changeStatus.{{$reminder->id}}" wire:change='changeStatus({{$reminder->id}})'>
@@ -55,7 +55,7 @@
                             </select>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
