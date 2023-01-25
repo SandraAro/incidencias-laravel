@@ -45,7 +45,7 @@
 
                     <div class="row">
                         <div class="col-8">
-                            {{-- <button class="b-btn-gradient" color="primary">Save</button> --}}
+                            <button class="b-btn-gradient" color="primary" tx="white">Save</button>
                         </div>
                         <div class="col-4 d-flex justify-content-end p-0 align-items-start">
                             <select class="form-select form-select-sm {{$this->changeColor($reminder->status->id)}} text-white mw-min d-inline-block" wire:model="changeStatus.{{$reminder->id}}" wire:change='changeStatus({{$reminder->id}})'>
@@ -80,4 +80,31 @@
         @endif
         @endforeach
     </div>
+
+{{-- Prueba este codigo si funcioan todos los colores y si los focus son del mismo color del boton: --}}
+
+{{-- <div class="b-box-content me-1-all row jc-center" style="align-items: baseline;">
+    <div bg="dark" class="p-1">
+        <button class="b-btn" color="default">default</button>
+    </div>
+        <button class="b-btn" color="alternate">alternate</button>
+        <button class="b-btn" color="green">green</button>
+        <button class="b-btn" color="chartreuse">chartreuse</button>
+        <button class="b-btn" color="yellow">yellow</button>
+        <button class="b-btn" color="orange">orange</button>
+        <button class="b-btn" color="red">red</button>
+        <button class="b-btn" color="light-blue">light-blue</button>
+        <button class="b-btn" color="aqua">aqua</button>
+        <button class="b-btn" color="turq">turq</button>
+        <button class="b-btn" color="blue">blue</button>
+        <button class="b-btn" color="indigo">indigo</button>
+        <button class="b-btn" color="purple">purple</button>
+        <button class="b-btn" color="dark-pink">dark-pink</button>
+        <button class="b-btn" color="pink">pink</button>
+        <button class="b-btn" color="white">white</button>
+        <button class="b-btn" color="gray">gray</button>
+        <button class="b-btn" color="dark-gray">dark-gray</button>
+        <button class="b-btn" color="black">black</button>
+        <button class="b-btn" color="link">link</button>
+    </div> --}}
 </div>

@@ -17,6 +17,6 @@
 
     @livewireScripts
     <script type="text/javascript" src="https://boxy.pages.dev/js/boxy.min.js"></script>
-    <script>noVersion()</script>
+    <script>boxyVersion(false)</script>
 </body>
 </html>
