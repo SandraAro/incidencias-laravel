@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('reminders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('reminder_status_id')->constrained();
-            $table->foreignId('company_id')->constrained();
+            $table->foreignId('company_id')->constrained()->nullable();
             $table->string('title');
             $table->string('description');
             $table->dateTime('date');

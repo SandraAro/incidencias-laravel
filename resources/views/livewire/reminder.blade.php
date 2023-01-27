@@ -20,9 +20,9 @@
         <button class="btn btn-primary" wire:click='saveReminder'>Crear</button>
     </div>
 
-    <div class="col-12 row mt-2 p-1 m-0">
+    <div class="col-9 row mt-2 p-1 m-0">
         @foreach ($reminders as $reminder)
-        <div class="col-3 col-sm-6 col-md-3">
+        <div class="col-4">
             <div class="card mb-1">
                 <div class="card-body">
                     <div class="row">
@@ -45,7 +45,7 @@
 
                     <div class="row">
                         <div class="col-8">
-                            <button class="b-btn-gradient" color="primary" tx="white">Save</button>
+                            {{--   --}}
                         </div>
                         <div class="col-4 d-flex justify-content-end p-0 align-items-start">
                             <select class="form-select form-select-sm {{$this->changeColor($reminder->status->id)}} text-white mw-min d-inline-block" wire:model="changeStatus.{{$reminder->id}}" wire:change='changeStatus({{$reminder->id}})'>
@@ -55,7 +55,6 @@
                             </select>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
