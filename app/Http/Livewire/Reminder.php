@@ -21,7 +21,7 @@ class Reminder extends Component
         $this->loadReminders();
 
         foreach($this->reminders as $reminder)
-        {
+        {   //status->id(función que hace la relación en el modelo, me saca el id)
             $this->changeStatus[$reminder->id] = $reminder->status->id;
         }
     }
@@ -30,7 +30,7 @@ class Reminder extends Component
     {
         $this->isEdit[$id] = true;
         $this->title = $title;
-        
+
     }
     public function update($id)
     {
@@ -59,9 +59,9 @@ class Reminder extends Component
             case '5':
                 return 'bg-secondary';
                 break;
-            
+
         }
-        
+
     }
     public function saveReminder()
     {
